@@ -1,0 +1,48 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        const string CMD_HELLO = "hello";
+        const string CMD_INFO = "info";
+        const string CMD_RANDOM = "random";
+        const string CMD_CLEAR = "clear";
+        const string CMD_EXIT = "exit";
+
+        while (true)
+        {
+            Console.WriteLine("\nКоманды: hello, info, random, clear, exit");
+            Console.Write("Введите команду: ");
+            string command = Console.ReadLine();
+
+            switch (command)
+            {
+                case CMD_HELLO:
+                    Console.WriteLine("Привет! Это простая программа.");
+                    break;
+                    
+                case CMD_INFO:
+                    Console.WriteLine("Информация: это программа для обработки команд.");
+                    break;
+                    
+                case CMD_RANDOM:
+                    Random rnd = new Random();
+                    Console.WriteLine($"Случайное число: {rnd.Next(1, 100)}");
+                    break;
+                    
+                case CMD_CLEAR:
+                    Console.Clear();
+                    break;
+                    
+                case CMD_EXIT:
+                    Console.WriteLine("Выход из программы.");
+                    return;
+                    
+                default:
+                    Console.WriteLine("Любая команда");
+                    break;
+            }
+        }
+    }
+}
