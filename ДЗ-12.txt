@@ -4,13 +4,13 @@ class Program
 {
     static void Main()
     {
-        string commandHello = "hello";
-        string commandInfo = "info";
-        string commandRandom = "random";
-        string commandClear = "clear";
-        string commandExit = "exit";
+        const string CommandHello = "hello";
+        const string CommandInfo = "info";
+        const string CommandRandom = "random";
+        const string CommandClear = "clear";
+        const string CommandExit = "exit";
 
-        string availableCommands = "\nКоманды: " + commandHello + ", " + commandInfo + ", " + commandRandom + ", " + commandClear + ", " + commandExit;
+        string availableCommands = $"\nКоманды: {CommandHello}, {CommandInfo}, {CommandRandom}, {CommandClear}, {CommandExit}";
         Random random = new Random();
         int minRandomValue = 1;
         int maxRandomValue = 100;
@@ -25,24 +25,24 @@ class Program
 
             switch (command)
             {
-                case "hello":
+                case CommandHello:
                     Console.WriteLine("Привет! Это простая программа.");
                     break;
 
-                case "info":
+                case CommandInfo:
                     Console.WriteLine("Информация: это программа для обработки команд.");
                     break;
 
-                case "random":
+                case CommandRandom:
                     int randomNumber = random.Next(minRandomValue, maxRandomValue + 1);
                     Console.WriteLine($"Случайное число: {randomNumber}");
                     break;
 
-                case "clear":
+                case CommandClear:
                     Console.Clear();
                     break;
 
-                case "exit":
+                case CommandExit:
                     Console.WriteLine("Выход из программы.");
                     isRunning = false;
                     break;
@@ -54,3 +54,4 @@ class Program
         }
     }
 }
+
