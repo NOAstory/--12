@@ -4,43 +4,51 @@ class Program
 {
     static void Main()
     {
-        const string CMD_HELLO = "hello";
-        const string CMD_INFO = "info";
-        const string CMD_RANDOM = "random";
-        const string CMD_CLEAR = "clear";
-        const string CMD_EXIT = "exit";
+        string commandHello = "hello";
+        string commandInfo = "info";
+        string commandRandom = "random";
+        string commandClear = "clear";
+        string commandExit = "exit";
 
-        while (true)
+        string availableCommands = "\nКоманды: " + commandHello + ", " + commandInfo + ", " + commandRandom + ", " + commandClear + ", " + commandExit;
+        Random random = new Random();
+        int minRandomValue = 1;
+        int maxRandomValue = 100;
+
+        bool isRunning = true;
+
+        while (isRunning)
         {
-            Console.WriteLine("\nКоманды: hello, info, random, clear, exit");
+            Console.WriteLine(availableCommands);
             Console.Write("Введите команду: ");
             string command = Console.ReadLine();
 
             switch (command)
             {
-                case CMD_HELLO:
+                case "hello":
                     Console.WriteLine("Привет! Это простая программа.");
                     break;
-                    
-                case CMD_INFO:
+
+                case "info":
                     Console.WriteLine("Информация: это программа для обработки команд.");
                     break;
-                    
-                case CMD_RANDOM:
-                    Random rnd = new Random();
-                    Console.WriteLine($"Случайное число: {rnd.Next(1, 100)}");
+
+                case "random":
+                    int randomNumber = random.Next(minRandomValue, maxRandomValue + 1);
+                    Console.WriteLine($"Случайное число: {randomNumber}");
                     break;
-                    
-                case CMD_CLEAR:
+
+                case "clear":
                     Console.Clear();
                     break;
-                    
-                case CMD_EXIT:
+
+                case "exit":
                     Console.WriteLine("Выход из программы.");
-                    return;
-                    
+                    isRunning = false;
+                    break;
+
                 default:
-                    Console.WriteLine("Любая команда");
+                    Console.WriteLine("Неизвестная команда. Попробуйте еще раз.");
                     break;
             }
         }
